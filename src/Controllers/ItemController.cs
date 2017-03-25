@@ -31,10 +31,10 @@
             IOTF.Credentials = nc;
             bool flag = false;
             IEnumerable<Item> items = new List<todo.Models.Item>();
-            string fileLocCopy = @"d:\documentdb-dotnet-todo-app-master\src\Order.txt";
-            StreamWriter aw = new StreamWriter(fileLocCopy);
-            aw.Write("");
-            aw.Close();
+            //string fileLocCopy = @"d:\documentdb-dotnet-todo-app-master\src\Order.txt";
+            //StreamWriter aw = new StreamWriter(fileLocCopy);
+            //aw.Write("");
+            //aw.Close();
 
             try
             {
@@ -127,17 +127,17 @@
 
                     String order = OrderId[o];
                     //System.IO.FileStream fp;
-                    if (flag == true)
-                    {
-                        if (System.IO.File.Exists(fileLocCopy))
-                        {
-                            using (StreamWriter sw = new StreamWriter(fileLocCopy,true))
-                            {
+                   // if (flag == true)
+                   // {
+                      //  if (System.IO.File.Exists(fileLocCopy))
+                       // {
+                           // using (StreamWriter sw = new StreamWriter(fileLocCopy,true))
+                           // {
                                 sw.WriteLine(order+","+DateTime.Now+" ");
                                 
-                            }
-                        }
-                    }
+                           // }
+                       // }
+                   // }
 
                 }
             }
