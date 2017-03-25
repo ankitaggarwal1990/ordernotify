@@ -1,0 +1,129 @@
+﻿@model IEnumerable<todo.Models.Item>
+
+@{
+    ViewBag.Title = "HALDIRAM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p style="background-color: #f5f2f1;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;">
+
+    @Html.ActionLink("Order Details", "Index")       
+</p>
+<p style="background-color: #f5f2f1;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;">
+
+    @Html.ActionLink("Inventory Available", "Edit")
+   
+</p>
+
+<div>
+    <div>
+        <p>
+            SELECT DESTINATION :
+
+            <select>
+                @foreach (var it in ViewBag.xxn)
+            {
+                    <option value="@it">@it</option>
+                }
+            </select>
+        </p>
+    </div>
+    <div>
+        <p>
+            SELECT ORDERS :
+            <select>
+                                @foreach (var it2 in ViewBag.xxn1)
+                                    {
+                                    <option value="@it2">@it2</option>
+                                }
+            </select>
+        </p>
+    </div>
+
+</div>
+
+
+<div>
+    <p>Orders :</p>
+    @foreach (var it3 in ViewBag.xxn1)
+    {    
+        <p> @it3</p>
+    }
+        
+    
+</div>
+<div>
+    @foreach (var it4 in ViewBag.Product)
+    {
+        <p> @it4</p>
+    }
+</div>
+<div>
+    @foreach (var it5 in ViewBag.quantity)
+    {
+        <p> @it5</p>
+    }
+</div>
+
+
+
+<h2>ORDER NUMBER  001</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Location
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductWeight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item.ProductID != "" && item.DeviceID=="RFID_READER_001")
+    {
+    <tr>
+        <td>
+            WAREHOUSE
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductWeight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+    </tr>
+    }
+}
+
+</table>
+
+
+

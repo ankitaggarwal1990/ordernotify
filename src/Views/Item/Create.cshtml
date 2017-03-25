@@ -1,0 +1,116 @@
+﻿@model IEnumerable<todo.Models.Item>
+
+@{
+    ViewBag.Title = "HALDIRAM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p style="background-color: #f5f2f1;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;">
+
+    @Html.ActionLink("Order Details", "Index")
+</p>
+<p style="background-color: #f5f2f1;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;">
+
+    @Html.ActionLink("Inventory Available", "Edit")
+</p>
+<h2></h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product)
+        </th>
+        <th>
+            Quantity Packed (in gm)
+        </th>
+        <th>
+            Packing Start Time
+        </th>
+        <th>
+            Last Packing Time
+        </th>
+    </tr>
+    @{
+        int x = 0;
+        var prod = "";
+        var start_time = "";
+        var stop_time = "";
+        var count = 0;
+
+        int x1 = 0;
+        var prod1 = "";
+        var start_time1 = "";
+        var stop_time1 = "";
+        var count1 = 0;
+
+    }
+    @foreach (var item in Model)
+    {
+        if (item.DeviceID == "RFID_READER_002")
+        {
+            if (item.Product == "RASGULLA")
+            {
+                //Int32.TryParse(item.Product_weight,out x);
+                x = x + Convert.ToInt32(item.Product_weight);
+                prod = item.Product;
+                stop_time = item.time_stamp;
+                if (count == 0)
+                {
+                    start_time = item.time_stamp;
+                }
+                count++;
+            }
+            if (item.Product == "GULABJAMOON")
+            {
+                //Int32.TryParse(item.Product_weight,out x);
+                x1 = x1 + Convert.ToInt32(item.Product_weight);
+                prod1 = item.Product;
+                stop_time1 = item.time_stamp;
+                if (count1 == 0)
+                {
+                    start_time1 = item.time_stamp;
+                }
+                count1++;
+            }
+
+        }
+    }
+
+    <tr>
+        <td>
+            @Html.DisplayName(prod)
+        </td>
+        <td>
+            @x
+        </td>
+        <td>
+            @Html.DisplayName(start_time)
+        </td>
+        <td>
+            @Html.DisplayName(stop_time)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayName(prod1)
+        </td>
+        <td>
+            @x1
+        </td>
+        <td>
+            @Html.DisplayName(start_time1)
+        </td>
+        <td>
+            @Html.DisplayName(stop_time1)
+        </td>
+    </tr>
+
+</table>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="GetOrderSummary">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetOrderSummary_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetOrderInfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="orderID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOrderInfo_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SendPackedOrderInfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="order_Id" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="order_Tag_Id" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="product_ID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ordered_Qty" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="packed_Qty" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="product_Tag_ID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no_of_Trays" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendPackedOrderInfo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOrderSummaryShipped">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="destination_ID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOrderSummaryShipped_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="GetOrderinfoShipped">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="order_ID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="order_Tag_Id" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOrderinfoShipped_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="SendRecivedOrderInfo">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="order_Id" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="order_Tag_Id" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="product_ID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ordered_Qty" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="recieved_Qty" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="product_Tag_ID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no_of_Trays" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendRecivedOrderInfo_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="GetOrderSummary">
+    <part name="parameters" element="tns:GetOrderSummary" />
+  </message>
+  <message name="GetOrderSummary_Result">
+    <part name="parameters" element="tns:GetOrderSummary_Result" />
+  </message>
+  <message name="GetOrderInfo">
+    <part name="parameters" element="tns:GetOrderInfo" />
+  </message>
+  <message name="GetOrderInfo_Result">
+    <part name="parameters" element="tns:GetOrderInfo_Result" />
+  </message>
+  <message name="SendPackedOrderInfo">
+    <part name="parameters" element="tns:SendPackedOrderInfo" />
+  </message>
+  <message name="SendPackedOrderInfo_Result">
+    <part name="parameters" element="tns:SendPackedOrderInfo_Result" />
+  </message>
+  <message name="GetOrderSummaryShipped">
+    <part name="parameters" element="tns:GetOrderSummaryShipped" />
+  </message>
+  <message name="GetOrderSummaryShipped_Result">
+    <part name="parameters" element="tns:GetOrderSummaryShipped_Result" />
+  </message>
+  <message name="GetOrderinfoShipped">
+    <part name="parameters" element="tns:GetOrderinfoShipped" />
+  </message>
+  <message name="GetOrderinfoShipped_Result">
+    <part name="parameters" element="tns:GetOrderinfoShipped_Result" />
+  </message>
+  <message name="SendRecivedOrderInfo">
+    <part name="parameters" element="tns:SendRecivedOrderInfo" />
+  </message>
+  <message name="SendRecivedOrderInfo_Result">
+    <part name="parameters" element="tns:SendRecivedOrderInfo_Result" />
+  </message>
+  <portType name="IOTFunctions_Port">
+    <operation name="GetOrderSummary">
+      <input name="GetOrderSummary" message="tns:GetOrderSummary" />
+      <output name="GetOrderSummary_Result" message="tns:GetOrderSummary_Result" />
+    </operation>
+    <operation name="GetOrderInfo">
+      <input name="GetOrderInfo" message="tns:GetOrderInfo" />
+      <output name="GetOrderInfo_Result" message="tns:GetOrderInfo_Result" />
+    </operation>
+    <operation name="SendPackedOrderInfo">
+      <input name="SendPackedOrderInfo" message="tns:SendPackedOrderInfo" />
+      <output name="SendPackedOrderInfo_Result" message="tns:SendPackedOrderInfo_Result" />
+    </operation>
+    <operation name="GetOrderSummaryShipped">
+      <input name="GetOrderSummaryShipped" message="tns:GetOrderSummaryShipped" />
+      <output name="GetOrderSummaryShipped_Result" message="tns:GetOrderSummaryShipped_Result" />
+    </operation>
+    <operation name="GetOrderinfoShipped">
+      <input name="GetOrderinfoShipped" message="tns:GetOrderinfoShipped" />
+      <output name="GetOrderinfoShipped_Result" message="tns:GetOrderinfoShipped_Result" />
+    </operation>
+    <operation name="SendRecivedOrderInfo">
+      <input name="SendRecivedOrderInfo" message="tns:SendRecivedOrderInfo" />
+      <output name="SendRecivedOrderInfo_Result" message="tns:SendRecivedOrderInfo_Result" />
+    </operation>
+  </portType>
+  <binding name="IOTFunctions_Binding" type="tns:IOTFunctions_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="GetOrderSummary">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions:GetOrderSummary" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOrderSummary">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOrderSummary_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOrderInfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions:GetOrderInfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOrderInfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOrderInfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendPackedOrderInfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions:SendPackedOrderInfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendPackedOrderInfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendPackedOrderInfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOrderSummaryShipped">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions:GetOrderSummaryShipped" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOrderSummaryShipped">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOrderSummaryShipped_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOrderinfoShipped">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions:GetOrderinfoShipped" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOrderinfoShipped">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOrderinfoShipped_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendRecivedOrderInfo">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/IOTFunctions:SendRecivedOrderInfo" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendRecivedOrderInfo">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendRecivedOrderInfo_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IOTFunctions">
+    <port name="IOTFunctions_Port" binding="tns:IOTFunctions_Binding">
+      <address location="http://priti_vm.tridentdelhi.com:8026/Haldiram/WS/HALDIRAM%20PRODUCTS%20PVT.%20LTD./Codeunit/IOTFunctions" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
